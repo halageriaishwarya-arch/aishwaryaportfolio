@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Advanced Video Carousel</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+.carousel-item {
+    height: 100vh;
+    position: relative;
+}
+
+/* Video */
+.carousel-item video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Dark overlay */
+.carousel-item::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+}
+
+/* Caption */
+.carousel-caption {
+    z-index: 2;
+    bottom: 30%;
+    text-align: center;
+}
+
+/* Animation */
+.carousel-caption h1 {
+    font-size: 60px;
+    animation: zoomIn 1.2s ease;
+}
+
+.carousel-caption p {
+    font-size: 20px;
+    animation: fadeUp 2s ease;
+}
+
+/* Keyframes */
+@keyframes zoomIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+</style>
+</head>
+
+<body>
+
+<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+
+<div class="carousel-inner">
+
+<!-- VIDEO 1 -->
+<div class="carousel-item active" data-bs-interval="120000"> <!-- 2 minutes -->
+    <video autoplay muted loop>
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+    </video>
+    <div class="carousel-caption">
+        <h1>Welcome</h1>
+        <p>Stay motivated every day</p>
+    </div>
+</div>
+
+<!-- VIDEO 2 -->
+<div class="carousel-item" data-bs-interval="120000">
+    <video autoplay muted loop>
+        <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
+    </video>
+    <div class="carousel-caption">
+        <h1>Success</h1>
+        <p>Work hard, dream big</p>
+    </div>
+</div>
+
+</div>
+
+<!-- Controls -->
+<button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+<span class="carousel-control-prev-icon"></span>
+</button>
+
+<button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+<span class="carousel-control-next-icon"></span>
+</button>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
